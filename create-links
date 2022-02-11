@@ -1,0 +1,6 @@
+#!/bin/sh
+
+for file in $(find "$(pwd -P)" -maxdepth 1 -type f ! -name .gitignore ! -name create-links)
+do
+    ln -s $file "$(dirname $(dirname ${file}))/$(basename ${file})"
+done
